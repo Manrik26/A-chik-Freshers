@@ -43,6 +43,7 @@
             align-items: center;
             width: 90%; /* Ensure it's slightly smaller to leave space for side images */
             max-width: 1400px; /* Increase the max width */
+            position: relative;
         }
         .side-image {
             flex: 1;
@@ -50,11 +51,12 @@
             justify-content: center;
             align-items: center;
             width: 200px; /* Increase the width of the image containers */
+            overflow: hidden; /* Ensure images don't overflow their containers */
         }
         .side-image img {
-            width: 180%; /* Make the side images even wider */
+            width: 100%; /* Adjust to make sure images fit their containers */
             max-height: 900px; /* Increase the height of the side images */
-            object-fit: contain; /* Ensure the image fits nicely */
+            object-fit: cover; /* Ensure the image covers the container */
         }
         .invitation-container {
             flex: 2;
@@ -68,6 +70,7 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             text-align: center;
             color: white;
+            z-index: 1; /* Ensure it sits above side images */
         }
         .invitation-container h1 {
             font-size: 42px;
@@ -93,9 +96,27 @@
         @media (max-width: 768px) {
             .content {
                 flex-direction: column; /* Stack content on smaller screens */
+                width: 100%;
+                padding: 10px; /* Add some padding */
             }
             .side-image {
                 display: none; /* Hide side images on smaller screens */
+            }
+            .invitation-container {
+                width: 100%;
+                padding: 20px;
+            }
+            .invitation-container h1 {
+                font-size: 32px;
+            }
+            .invitation-container p {
+                font-size: 18px;
+            }
+            .signature {
+                font-size: 20px;
+            }
+            .event-details {
+                font-size: 20px;
             }
         }
     </style>
