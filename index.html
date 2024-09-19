@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Okamani Chitti</title>
+    <title>Somoi Sepangaha</title>
     <style>
         * {
             margin: 0;
@@ -15,17 +15,19 @@
             font-family: 'Poppins', sans-serif;
         }
         .background {
-            background-image: url('i11.jpeg'); /* Correct URL */
+            background-image: url('i3.jpeg'); /* Replace with your image */
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             height: 100vh;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
+            color: white;
+            text-align: center;
             position: relative;
-            border: 10px solid rgba(255, 255, 255, 0.8);
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            z-index: 1;
         }
         .background::before {
             content: "";
@@ -34,136 +36,153 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.6); /* Darker overlay */
+            background-color: rgba(0, 0, 0, 0.6);
             z-index: -1;
         }
-        .content {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 90%;
-            max-width: 1200px;
-            position: relative;
-        }
-        .side-image {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-            max-width: 200px; /* Limit side image width */
-        }
-        .side-image img {
-            width: 100%;
-            height: auto;
-            max-height: 100vh;
-            object-fit: cover;
-        }
-        .invitation-container {
-            flex: 2;
-            background-color: rgba(0, 0, 0, 0.7); /* Slightly transparent */
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            text-align: center;
-            color: white;
-            z-index: 1;
-            font-family: 'Lora', serif; /* Elegant serif font */
-        }
-        .invitation-container h1 {
+        .welcome-text {
             font-size: 36px;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            font-weight: bold;
             text-transform: uppercase;
             letter-spacing: 2px;
+        }
+        .timer-container {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        .countdown {
+            font-size: 56px;
+            letter-spacing: 4px;
             font-weight: bold;
-            color: #f5a623; /* Warm gold color for emphasis */
-            font-family: 'Cinzel', serif; /* Classic serif font */
         }
-        .invitation-container p {
-            font-size: 18px;
-            margin-bottom: 20px;
-            line-height: 1.6;
-            font-weight: 300; /* Lighter weight for better readability */
+        .countdown div {
+            display: inline-block;
+            margin: 0 10px; /* Reduced margin for better fit on mobile */
         }
-        .bold-text {
-            font-weight: bold; /* Make text bold */
-            font-family: 'Poppins', sans-serif; /* Modern sans-serif for emphasis */
-        }
-        .signature {
+        .label {
             font-size: 20px;
-            margin-top: 20px;
-            font-weight: bold;
-            font-family: 'Lora', serif; /* Elegant serif font */
-        }
-        .event-details {
-            font-size: 20px;
-            font-weight: bold;
             margin-top: 15px;
-            font-family: 'Poppins', sans-serif; /* Modern sans-serif */
+            letter-spacing: 2px;
         }
+        .buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        .buttons a {
+            text-decoration: none;
+            background-color: #ff6600;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 25px;
+            margin: 10px;
+            font-size: 18px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            width: 150px;
+            text-align: center;
+        }
+        .buttons a:hover {
+            background-color: #e65c00;
+            transform: translateY(-5px);
+        }
+
+        /* Responsive Styles */
         @media (max-width: 768px) {
-            .content {
-                flex-direction: column;
-                width: 100%;
-                padding: 10px;
-                align-items: center; /* Center items in column layout */
+            .welcome-text {
+                font-size: 24px;
             }
-            .side-image {
-                display: none; /* Hide side images on smaller screens */
+            .countdown {
+                font-size: 36px; /* Reduced font size for mobile */
             }
-            .invitation-container {
-                width: 100%;
-                padding: 15px;
+            .countdown div {
+                margin: 0 5px; /* Smaller gap between countdown numbers */
             }
-            .invitation-container h1 {
-                font-size: 28px;
-            }
-            .invitation-container p {
+            .label {
                 font-size: 16px;
             }
-            .signature {
-                font-size: 18px;
+            .buttons a {
+                width: 120px;
+                padding: 10px 20px;
+                font-size: 16px;
             }
-            .event-details {
-                font-size: 18px;
+        }
+
+        @media (max-width: 480px) {
+            .welcome-text {
+                font-size: 20px;
+            }
+            .countdown {
+                font-size: 28px; /* Further reduce font size for very small screens */
+            }
+            .countdown div {
+                margin: 0 3px; /* Reduce gap for very small screens */
+            }
+            .label {
+                font-size: 14px;
+            }
+            .buttons a {
+                width: 100px;
+                padding: 8px 15px;
+                font-size: 14px;
             }
         }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Lora:wght@400&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="background">
-        <div class="content">
-            <div class="side-image">
-                <img src="i8.png" alt="Left side image"> <!-- Correct URL -->
+        <div class="welcome-text">
+            RIMCHAKSOA ADBU A'CHIK NOKDANG-ONA
+        </div>
+        <div class="timer-container">
+            <h1>Countdown Begins</h1>
+            <div class="countdown">
+                <div id="days">00</div>:
+                <div id="hours">00</div>:
+                <div id="minutes">00</div>:
+                <div id="seconds">00</div>
             </div>
-            <div class="invitation-container">
-                <h1>ADBU A'CHIK NOKDANG</h1>
-                <p>OKAMANI CHITTI</p>
-                <p>
-                    Ka.sabea ADBU A.chik chadamberang.<br><br>
-                    Na.simangni gitalgipa skie ra.ani a.bao ia A.chik<br>
-                    nokdangona rimchaksoa aro na.simangni mikkangko tik<br>
-                    ka.gimin tariko gronggrikna kusi ong.bee nisamsoenga.<br><br>
-                    Na.simangni gamchatgipa somoiko<br>
-                    jakkale donsogimin salo bak ra.pachina<br>
-                    mol.molatenga.
-                </p>
-                <div class="event-details bold-text">
-                    Hotel Neexotica<br>
-                    Banquet Hall<br>
-                    Azara, Opp. Mountain Shadow<br>
-                    Guwahati-781017
-                </div>
-                <p class="signature">
-                    Ka.sabea,<br> 
-                    ADBU A.chik Nokdang
-                </p>
-            </div>
-            <div class="side-image">
-                <img src="i8.png" alt="Right side image"> <!-- Correct URL -->
-            </div>
+            <div class="label">Days &nbsp;&nbsp; Hours &nbsp;&nbsp; Minutes &nbsp;&nbsp; Seconds</div>
+        </div>
+        <div class="buttons">
+            <a href="invitation.html">Okamani Chitti</a>
+            <a href="food-items.html">Food Items</a>
+            <a href="programlist.html">Program List</a>
+            <a href="gallery.html">Gallery</a>
         </div>
     </div>
+
+    <script>
+        // Set the date we're counting down to
+        var countDownDate = new Date("Sep 21, 2024 13:00:00").getTime();
+
+        // Update the countdown every second
+        var x = setInterval(function() {
+            var now = new Date().getTime();
+            var distance = countDownDate - now;
+
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerHTML = days;
+            document.getElementById("hours").innerHTML = hours;
+            document.getElementById("minutes").innerHTML = minutes;
+            document.getElementById("seconds").innerHTML = seconds;
+
+            if (distance < 0) {
+                clearInterval(x);
+                document.querySelector(".countdown").innerHTML = "Event Started";
+            }
+        }, 1000);
+    </script>
 </body>
 </html>
