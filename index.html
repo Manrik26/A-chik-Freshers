@@ -60,7 +60,7 @@
         }
         .countdown div {
             display: inline-block;
-            margin: 0 10px; /* Reduced margin for better fit on mobile */
+            margin: 0 15px;
         }
         .label {
             font-size: 20px;
@@ -99,11 +99,14 @@
             .welcome-text {
                 font-size: 24px;
             }
+            .timer-container {
+                padding: 20px;
+            }
             .countdown {
-                font-size: 36px; /* Reduced font size for mobile */
+                font-size: 32px; /* Reduced font size for mobile */
             }
             .countdown div {
-                margin: 0 5px; /* Smaller gap between countdown numbers */
+                margin: 0 5px; /* Reduced margin for better fit */
             }
             .label {
                 font-size: 16px;
@@ -112,26 +115,6 @@
                 width: 120px;
                 padding: 10px 20px;
                 font-size: 16px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .welcome-text {
-                font-size: 20px;
-            }
-            .countdown {
-                font-size: 28px; /* Further reduce font size for very small screens */
-            }
-            .countdown div {
-                margin: 0 3px; /* Reduce gap for very small screens */
-            }
-            .label {
-                font-size: 14px;
-            }
-            .buttons a {
-                width: 100px;
-                padding: 8px 15px;
-                font-size: 14px;
             }
         }
     </style>
