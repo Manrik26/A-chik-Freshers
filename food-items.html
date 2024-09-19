@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Items</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f0f0f0, #e0e0e0); /* Gradient background */
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+        .food-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background: #fff;
+            padding: 10px;
+            text-align: center;
+            flex: 1 1 200px; /* Flexible basis for responsiveness */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+        }
+        .food-item img {
+            max-width: 100%;
+            max-height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s ease; /* Smooth transition for image */
+        }
+        .food-item:hover img,
+        .food-item:focus-within img {
+            transform: scale(1.05); /* Slightly enlarge the image */
+        }
+        .food-item:hover,
+        .food-item:focus-within {
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhance shadow on hover/focus */
+            transform: scale(1.02); /* Slightly enlarge the food item */
+        }
+        .food-item h2 {
+            font-size: 18px;
+            margin-top: 10px;
+            color: #333;
+        }
+        .food-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        @media (max-width: 768px) {
+            .food-item {
+                flex: 1 1 100%; /* Full width on smaller screens */
+            }
+            .food-item img {
+                max-height: 120px; /* Smaller images on mobile */
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1 style="text-align: center; margin-bottom: 20px; font-size: 32px; color: #333;">Available Food Items</h1>
+        <div class="food-grid">
+            <div class="food-item">
+                <img src="wak-kapa.jpg" alt="Wak Kapa">
+                <h2>Wak Kapa</h2>
+            </div>
+            <div class="food-item">
+                <img src="wak-meseng.jpg" alt="Wak Meseng">
+                <h2>Wak Meseng</h2>
+            </div>
+            <div class="food-item">
+                <img src="doo-kapa.jpg" alt="Do.o Kapa">
+                <h2>Do.o Kapa</h2>
+            </div>
+            <div class="food-item">
+                <img src="doo-too.jpg" alt="Do.o Too">
+                <h2>Do.o Too</h2>
+            </div>
+            <div class="food-item">
+                <img src="dal.jpg" alt="Dal">
+                <h2>Dal</h2>
+            </div>
+            <div class="food-item">
+                <img src="do-chi-rita.jpg" alt="Do.chi Rita">
+                <h2>Do.chi Rita</h2>
+            </div>
+            <div class="food-item">
+                <img src="nakam-me-chi.jpg" alt="Nakam Me.chi">
+                <h2>Nakam Me.chi</h2>
+            </div>
+            <div class="food-item">
+                <img src="boil-rice.jpg" alt="Boil Rice">
+                <h2>Boil Rice</h2>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
