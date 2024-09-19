@@ -101,6 +101,26 @@
             margin-top: 15px;
             font-family: 'Poppins', sans-serif; /* Modern sans-serif */
         }
+        /* Exit button styles */
+        .exit-button {
+            margin-top: 30px;
+            background-color: #f5a623;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        .exit-button:hover {
+            background-color: #d4880d;
+        }
+        .exit-button a {
+            color: #fff;
+            text-decoration: none;
+        }
         @media (max-width: 768px) {
             .content {
                 flex-direction: column;
@@ -126,6 +146,10 @@
             }
             .event-details {
                 font-size: 18px;
+            }
+            .exit-button {
+                padding: 8px 15px;
+                font-size: 14px;
             }
         }
     </style>
@@ -159,6 +183,10 @@
                     Ka.sabea,<br> 
                     ADBU A.chik Nokdang
                 </p>
+                <!-- Exit Button -->
+                <button class="exit-button">
+                    <a href="index.html">Exit</a>
+                </button>
             </div>
             <div class="side-image">
                 <img src="i8.png" alt="Right side image"> <!-- Correct URL -->
