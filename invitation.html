@@ -13,16 +13,18 @@
         body, html {
             height: 100%;
             font-family: 'Poppins', sans-serif;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
         }
         .background {
             background-image: url('i11.jpeg'); /* Correct URL */
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
             position: relative;
             border: 10px solid rgba(255, 255, 255, 0.8);
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
@@ -44,19 +46,19 @@
             width: 90%;
             max-width: 1200px;
             position: relative;
+            flex-direction: column; /* Stack content vertically */
         }
         .side-image {
-            flex: 1;
             display: flex;
             justify-content: center;
             align-items: center;
             overflow: hidden;
-            max-width: 200px; /* Limit side image width */
+            margin: 20px 0; /* Add margin to space out the images */
         }
         .side-image img {
-            width: 100%;
+            width: 100%; /* Ensure the image takes full width */
             height: auto;
-            max-height: 100vh;
+            max-width: 500px; /* Adjust max width for larger screens */
             object-fit: cover;
         }
         .invitation-container {
@@ -69,6 +71,7 @@
             color: white;
             z-index: 1;
             font-family: 'Lora', serif; /* Elegant serif font */
+            margin: 20px 0;
         }
         .invitation-container h1 {
             font-size: 36px;
@@ -126,10 +129,10 @@
                 flex-direction: column;
                 width: 100%;
                 padding: 10px;
-                align-items: center; /* Center items in column layout */
+                align-items: center;
             }
-            .side-image {
-                display: none; /* Hide side images on smaller screens */
+            .side-image img {
+                max-width: 100%; /* Ensure images take full width on mobile */
             }
             .invitation-container {
                 width: 100%;
@@ -158,9 +161,11 @@
 <body>
     <div class="background">
         <div class="content">
+            <!-- Image at the top -->
             <div class="side-image">
-                <img src="i8.png" alt="Left side image"> <!-- Correct URL -->
+                <img src="i8.png" alt="Top image">
             </div>
+
             <div class="invitation-container">
                 <h1>ADBU A'CHIK NOKDANG</h1>
                 <p>OKAMANI CHITTI</p>
@@ -188,8 +193,10 @@
                     <a href="index.html">Exit</a>
                 </button>
             </div>
+
+            <!-- Image at the bottom -->
             <div class="side-image">
-                <img src="i8.png" alt="Right side image"> <!-- Correct URL -->
+                <img src="i8.png" alt="Bottom image">
             </div>
         </div>
     </div>
