@@ -63,6 +63,22 @@
             justify-content: space-between;
             gap: 20px;
         }
+        /* Exit button styles */
+        .exit-button {
+            display: inline-block;
+            background-color: #f44336; /* Red color */
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        .exit-button:hover {
+            background-color: #d32f2f; /* Darker red on hover */
+        }
         @media (max-width: 768px) {
             .food-item {
                 flex: 1 1 100%; /* Full width on smaller screens */
@@ -111,6 +127,8 @@
                 <h2>Boil Rice</h2>
             </div>
         </div>
+        <!-- Exit button added here -->
+        <a href="./index.html" class="exit-button">Exit</a>
     </div>
 </body>
 </html>
