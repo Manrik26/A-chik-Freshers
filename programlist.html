@@ -13,26 +13,160 @@
         body, html {
             height: 100%;
             font-family: 'Poppins', sans-serif;
+        }
+        body {
+            background: linear-gradient(45deg, #2F4F4F, #000080); /* Dark Slate Gray and Navy */
+            color: #fff;
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #f0f0f0;
+            position: relative;
         }
-        .center-box {
-            background-color: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        h1 {
+            font-size: 36px;
             text-align: center;
-            font-size: 24px;
-            color: #333;
+            margin-bottom: 20px;
+            font-weight: bold;
+            color: #FFD700; /* Gold */
+            text-transform: uppercase;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+        .scroll-container {
+            max-height: 70vh; /* Limits the container's height */
+            overflow-y: scroll;
+            padding-right: 10px;
+            scrollbar-width: thin; /* Firefox scrollbar */
+            scrollbar-color: #FFD700 transparent;
+        }
+        .scroll-container::-webkit-scrollbar {
+            width: 10px;
+        }
+        .scroll-container::-webkit-scrollbar-thumb {
+            background-color: #FFD700; /* Gold for the scrollbar */
+            border-radius: 10px;
+        }
+        .program-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        .program-list li {
+            font-size: 20px;
+            margin-bottom: 15px;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 10px;
+            transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
+            opacity: 0;
+            transform: translateX(-100px);
+            animation: fadeInUp 0.5s forwards;
+        }
+        .program-list li.in-view {
+            transform: scale(1.05); /* Pop-out effect */
+            box-shadow: 0px 5px 15px rgba(255, 215, 0, 0.6); /* Add shadow during pop-out */
+        }
+        .program-list li:hover {
+            background-color: rgba(255, 215, 0, 0.7); /* Gold on hover */
+        }
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        /* Exit button styling */
+        .exit-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #ff4d4d; /* Red button */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        .exit-btn:hover {
+            background-color: #ff1a1a; /* Darker red on hover */
+        }
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 28px;
+            }
+            .program-list li {
+                font-size: 18px;
+            }
+            .scroll-container {
+                max-height: 60vh; /* Adjust height for mobile */
+            }
+            .exit-btn {
+                font-size: 14px;
+                padding: 8px 15px;
+            }
         }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="center-box">
-        The program list will be available soon
+
+    <div class="container">
+        <button class="exit-btn" onclick="window.location.href = 'index.html';">Exit</button>
+        <h1>Program List</h1>
+        <div class="scroll-container">
+            <ul class="program-list">
+                <li>1. PRAYER – KASANO DONDIME K MARAK (ASST. SECRETARY)</li>
+                <li>2. WELCOME SONG</li>
+                <li>3. WELCOME SPEECH - MANRIK R MARAK (PRESIDENT)</li>
+                <li>4. FELICITATION PROGRAM</li>
+                <li>5. INTRODUCTION OF EXECUTIVE</li>
+                <li>6. SPEECH BY SENIOR</li>
+                <li>7. GARO DANCE</li>
+                <li>8. SPEECHES BY CHIEF GUEST</li>
+                <li>9. SONG BY SENIOR</li>
+                <li>10. GROUP SONG - (KASANO & FRIENDS)</li>
+                <li>11. VOTE OF THANKS - CHIBAMCHI</li>
+                <li>12. INTRODUCTION OF JUDGES</li>
+                <li>13. INTRODUCTION OF FRESHER’S (1ST ROUND)</li>
+                <li>14. DANCES by M.COM GIRLS</li>
+                <li>15. GAMES</li>
+                <li>16. 2ND ROUND (TALENT SHOW)</li>
+                <li>17. DANCE by M.com</li>
+                <li>18. SONG by TENGRIMCHI R MARAK</li>
+                <li>19. 3RD ROUND</li>
+                <li>20. GAMES</li>
+                <li>21. FRESHER’S IF ANY ITEM</li>
+                <li>22. RESULT</li>
+                <li>23. DANCE by LINGESIL</li>
+                <li>24. VOTE OF THANKS - RICHARD T SANGMA (GENERAL SECRETARY)</li>
+            </ul>
+        </div>
     </div>
+
+    <script>
+        // Function to detect when list items come into view and add the 'in-view' class
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                } else {
+                    entry.target.classList.remove('in-view');
+                }
+            });
+        });
+
+        document.querySelectorAll('.program-list li').forEach(item => {
+            observer.observe(item);
+        });
+    </script>
+
 </body>
 </html>
