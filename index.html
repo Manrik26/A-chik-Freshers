@@ -178,9 +178,10 @@
             document.getElementById("minutes").innerHTML = minutes;
             document.getElementById("seconds").innerHTML = seconds;
 
+            // If the countdown is over, display "Program Has Ended"
             if (distance < 0) {
                 clearInterval(x);
-                document.querySelector(".countdown").innerHTML = "Event Started";
+                document.querySelector(".countdown").innerHTML = "Program Has Ended";
             }
         }, 1000);
     </script>
